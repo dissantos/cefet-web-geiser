@@ -1,0 +1,26 @@
+{
+  "name": "cefet-web-geiser",
+  "version": "1.0.0",
+  "description": "Um registraor de jogos",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dissantos/cefet-web-geiser.git"
+  },
+  "author": "Diego Santos Gonçalves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dissantos/cefet-web-geiser/issues"
+  },
+  "homepage": "https://github.com/dissantos/cefet-web-geiser#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "type": "module"
+}
