@@ -1,6 +1,7 @@
 // importação de dependência(s)
 import express from 'express'
 import path from 'path';
+import fs from 'fs';
 
 // variáveis globais deste módulo
 const PORT = 3000
@@ -20,14 +21,18 @@ const __dirname = path.resolve();
 //app.set('view engine', '???qual-templating-engine???');
 //app.set('views', '???caminho-ate-pasta???');
 // dica: 2 linhas
-
+app.set('view engine', 'hbs');
+app.set('views', 'server/views');
 
 // EXERCÍCIO 2
 // definir rota para página inicial --> renderizar a view index, usando os
 // dados do banco de dados "data/jogadores.json" com a lista de jogadores
 // dica: o handler desta função é bem simples - basta passar para o template
 //       os dados do arquivo data/jogadores.json (~3 linhas)
-
+db['players'] = JSON.parse(fs.readFileSync('server/data/jogadores.json'))['players']
+app.get('/', (req, res) => {
+    res.render('index', {players: db['players']})
+})
 
 
 // EXERCÍCIO 3
