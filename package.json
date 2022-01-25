@@ -21,7 +21,9 @@
   "homepage": "https://github.com/dissantos/cefet-web-geiser#readme",
   "dependencies": {
     "express": "^4.17.2",
-    "hbs": "^4.2.0"
+    "hbs": "^4.2.0",
+    "path": "^0.12.7",
+    "underscore": "^1.13.2"
   },
   "type": "module"
 }
