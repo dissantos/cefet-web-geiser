@@ -14,6 +14,8 @@ const __dirname = path.resolve();
 // carregar "banco de dados" (data/jogadores.json e data/jogosPorJogador.json)
 // você pode colocar o conteúdo dos arquivos json no objeto "db" logo abaixo
 // dica: 1-4 linhas de código (você deve usar o módulo de filesystem (fs))
+db['players'] = JSON.parse(fs.readFileSync('server/data/jogadores.json'))['players'];
+db['gamesForPlayers'] = JSON.parse(fs.readFileSync('server/data/jogosPorJogador.json'));
 
 
 
@@ -30,7 +32,6 @@ app.set('views', 'server/views');
 // dados do banco de dados "data/jogadores.json" com a lista de jogadores
 // dica: o handler desta função é bem simples - basta passar para o template
 //       os dados do arquivo data/jogadores.json (~3 linhas)
-db['players'] = JSON.parse(fs.readFileSync('server/data/jogadores.json'))['players'];
 app.get('/', (req, res) => {
     res.render('index', {players: db['players']})
 });
@@ -41,7 +42,6 @@ app.get('/', (req, res) => {
 // jogador, usando os dados do banco de dados "data/jogadores.json" e
 // "data/jogosPorJogador.json", assim como alguns campos calculados
 // dica: o handler desta função pode chegar a ter ~15 linhas de código
-db['gamesForPlayers'] = JSON.parse(fs.readFileSync('server/data/jogosPorJogador.json'));
 app.get('/jogador/:numero_identificador/', (req, res) => {
     const player = _.find(db['players'], (el) => {
         return req.params.numero_identificador === el.steamid;
